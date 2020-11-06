@@ -70,6 +70,8 @@ NSTimer *timer;
 - (WKWebViewConfiguration*) createConfigurationFromSettings:(NSDictionary*)settings
 {
     WKWebViewConfiguration* configuration = [[WKWebViewConfiguration alloc] init];
+    [configuration.preferences setValue:@TRUE forKey:@"allowFileAccessFromFileURLs"];
+    [configuration setValue:@"TRUE" forKey:@"allowUniversalAccessFromFileURLs"];
     configuration.processPool = [[CDVWKProcessPoolFactory sharedFactory] sharedProcessPool];
     if (settings == nil) {
         return configuration;
